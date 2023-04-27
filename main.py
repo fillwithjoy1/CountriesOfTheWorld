@@ -21,11 +21,13 @@ countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua 
              'Luxembourg', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands',
              'Mauritania', 'Mauritius', 'Mexico', 'Micronesia, Federated States of', 'Moldova', 'Monaco', 'Mongolia',
              'Montenegro', 'Morocco', 'Mozambique', 'Myanmar (Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands',
-             'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Macedonia', 'Norway', 'Oman', 'Pakistan', 'Palau',
+             'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Macedonia', 'North Korea', 'Norway', 'Oman',
+             'Pakistan', 'Palau', 'Palestine',
              'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania',
              'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa',
              'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone',
-             'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'Spain', 'Sri Lanka',
+             'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'Spain',
+             'Sri Lanka',
              'Sudan', 'South Sudan', 'Suriname', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania',
              'Thailand', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu',
              'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan',
@@ -55,11 +57,12 @@ for country in countries:
     input_element.clear()
     input_element.send_keys(country)
     input_element.send_keys(Keys.RETURN)
-    # time.sleep(1)  # Add a delay to avoid being blocked or flagged as a bot
+    time.sleep(0.1)  # Add a delay as the website animations limit how fast I can spam
 
-# DEBUG: Check which countries did I miss
-
+# DEBUG: Check which countries did I miss (id: giveUp)
 input('proceed?')
+give_up = driver.find_element(by=By.ID, value='giveUp')
+give_up.click()
 
 # Close the browser.
 driver.quit()
