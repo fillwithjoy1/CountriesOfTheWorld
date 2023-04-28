@@ -1,8 +1,8 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 import time
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 # List of all countries in the world
 countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia',
@@ -22,24 +22,21 @@ countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua 
              'Mauritania', 'Mauritius', 'Mexico', 'Micronesia, Federated States of', 'Moldova', 'Monaco', 'Mongolia',
              'Montenegro', 'Morocco', 'Mozambique', 'Myanmar (Burma)', 'Namibia', 'Nauru', 'Nepal', 'Netherlands',
              'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Macedonia', 'North Korea', 'Norway', 'Oman',
-             'Pakistan', 'Palau', 'Palestine',
-             'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania',
-             'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa',
-             'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone',
-             'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'Spain',
-             'Sri Lanka',
-             'Sudan', 'South Sudan', 'Suriname', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania',
-             'Thailand', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu',
-             'Uganda', 'UK', 'Ukraine', 'United Arab Emirates', 'United States', 'Uruguay', 'Uzbekistan',
-             'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']
-
+             'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines',
+             'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia',
+             'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia',
+             'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands',
+             'Somalia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'Sudan', 'South Sudan', 'Suriname',
+             'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Togo', 'Tonga',
+             'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'UK', 'Ukraine',
+             'United Arab Emirates', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela',
+             'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']
 
 # Initialize the web driver
 driver = webdriver.Edge()
 
 # Navigate to the quiz website
 driver.get('https://www.sporcle.com/games/g/world')
-
 
 # Wait for Edge to finish loading the webpage
 driver.implicitly_wait(10)
@@ -59,10 +56,6 @@ for country in countries:
     input_element.send_keys(Keys.RETURN)
     time.sleep(0.1)  # Add a delay as the website animations limit how fast I can spam
 
-# DEBUG: Check which countries did I miss (id: giveUp)
-input('proceed?')
-give_up = driver.find_element(by=By.ID, value='giveUp')
-give_up.click()
-
-# Close the browser.
+# Close the browser after 5 seconds
+time.sleep(5)
 driver.quit()
