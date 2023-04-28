@@ -40,7 +40,6 @@ driver.get('https://www.sporcle.com/games/g/world')
 
 # Wait for Edge to finish loading the webpage
 driver.implicitly_wait(10)
-# input("Is the webpage loaded?")
 
 # Identify and click the button element
 button_element = driver.find_element(by=By.ID, value='button-play')
